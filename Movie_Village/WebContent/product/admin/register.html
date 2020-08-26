@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>header</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/bootstrap.css" rel="stylesheet">
+  <style>
+  @import
+	url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+  @import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+  
+  @import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+*[role="form"] {
+	max-width: 530px;
+	padding: 15px;
+	margin: 0 auto;
+	border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 40px;
+	font-weight: 600;
+	color: #000000;
+	margin-top: 5%;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+
+p {
+	text-align : center;
+	font-family: 'Single Day';
+	font-size: 90px;
+}
+
+a {
+	color: black;
+}
+
+  </style>
+</head>
+<body>
+
+<body>
+	<p><a href="/Movie_Village/main_admin.html">영화마을</a></p>
+	<div class="container">
+		<form class="form-horizontal" role="form" method="get" action="productlist_admin.html" enctype="multipart/form-data">
+			<h2>제품등록</h2>
+			<br>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">제품이름</label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<input type="text" id="p_title" name="p_title" placeholder="제품이름" class="form-control" autofocus>
+				</div>
+				<span id="msg_title" style="margin-left:180px;"></span>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">저자/감독</label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<input type="text" id="p_author" name="p_author" placeholder="저자/감독" class="form-control">
+				</div>
+				<span id="msg_author" style="margin-left:180px;"></span>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">출판사/기획사 </label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<input type="text" id="p_publisher" name="p_publisher" placeholder="출판사/기획사" class="form-control">
+				</div>
+				<span id="msg_publisher" style="margin-left:180px;"></span>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">가격</label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<input type="number" id="p_price" name="p_price" placeholder="가격" class="form-control">
+				</div>
+				<span id="msg_price" style="margin-left:180px;"></span>
+			</div>
+			<div class="form-group" align="center">
+				<input type="radio" id="p_division" name="p_division" value="1" checked="checked" style="width:25px;height:25px;border:1px;"><span class="rb">책</span>
+  				<input type="radio" id="p_division" name="p_division" value="2" style="width:25px;height:25px;border:1px;"><span class="rb"> 영화</span>
+  			</div>	
+			<span id="msg_division" style="margin-left:180px;"></span>
+			<div class="form-group">
+				<label for="password" class="col-sm-3 control-label">이미지</label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<input type="file" id="filename" name="filename">
+				</div>
+				<span id="msg_Tel" style="margin-left:180px;"></span>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">정보</label>
+				<div class="col-sm-6" style="margin-bottom: 8px;">
+					<textarea id="p_info" name="p_info" rows="10" cols="10" class="form-control"></textarea>
+				</div>
+				<span id="msg_price" style="margin-left:180px;"></span>
+			</div>
+			<div align="center">
+				<input type="submit" id="btnregister" value="제품등록" class="btn btn-primary">
+			</div>
+		</form>
+		<!-- /form -->
+	</div>
+	<!-- ./container -->
+	
+	<script>
+	
+	$("#btnregister").on('click',function(){
+		var register = {"p_title" : $('#p_title').val(), "p_author" : $('#p_author').val(), "p_publisher" : $('#p_publisher').val() ,"p_price" : $('#p_price').val(), "filename" : $('#filename').val(), "p_info" : $('#p_info').val(), "p_division" : $('#p_division').val()};
+		if(register.p_title == ""){
+			$('#msg_title').html('제품이름을 입력해주세요');
+			$('#msg_title').css('color','red');
+			$('#msg_author').html('');
+			$('#msg_price').html('');
+			$('#msg_publisher').html('');
+			return false;
+		}else if(register.p_author == ""){
+			$('#msg_author').html('저자/감독 입력해주세요');
+			$('#msg_author').css('color','red');
+			$('#msg_title').html('');
+			$('#msg_price').html('');
+			$('#msg_publisher').html('');
+			return false;
+		}else if(register.p_publisher == ""){
+			$('#msg_publisher').html('출판사/기획사 입력해주세요');
+			$('#msg_publisher').css('color','red');
+			$('#msg_title').html('');
+			$('#msg_author').html('');
+			$('#msg_price').html('');
+			return false;
+		}else if(register.p_price == ""){
+			$('#msg_price').html('가격을 입력해주세요');
+			$('#msg_price').css('color','red');
+			$('#msg_title').html('');
+			$('#msg_author').html('');
+			$('#msg_publisher').html('');
+			return false;
+		}else{
+			alert('제품 등록에 성공하셨습니다.');
+			location.href="productlist_admin.html";
+		}
+	});
+	</script>
+</body>
+
+</body>
+</html>

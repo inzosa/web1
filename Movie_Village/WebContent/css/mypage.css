@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap'); 
+*[role="form"] {
+	max-width: 530px;
+	padding: 15px;
+	margin: 0 auto;
+	border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 40px;
+	font-weight: 600;
+	color: #000000;
+	margin-top: 5%;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+
+p {
+	text-align : center;
+	font-family: 'Single Day';
+	font-size: 90px;
+}
+
+a {
+	color: black;
+}

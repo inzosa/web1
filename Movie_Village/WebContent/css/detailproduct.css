@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.p_name {
+	font-size: 28px;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: black;
+}
+
+.p_author {
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.divi {
+	font-size: 37px;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+.fas {
+	height: 50px;
+	width: 50px;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #CC3D3D;
+  color: white;
+  border: 1px solid #CC3D3D;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
